@@ -1,3 +1,5 @@
+### Ce fichier permet d'ignorer certains fichier/dossiers à envoyer en ligne
+
 
 ###> symfony/framework-bundle ###
 /.env.local
