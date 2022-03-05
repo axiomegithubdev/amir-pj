@@ -132,6 +132,22 @@ On peut aussi passer la génération de migration, si on est fénéant mais atte
 php bin/console doctrine:schema:update -f
 ```
 
+---
+
+## Créer une commande
+
+Nous allons créer une commande qui va nous permettre d'enregistrer des utilistateurs en base.
+Une fois de plus nous allons utiliser le maker de Symfony
+
+```bash
+
+php bin\console make:command
+
+```
+
+On suit le guide comme d'habitude, en respectant la convention (user:create)
+Pour en savoir plus, []
+
 
 
 
