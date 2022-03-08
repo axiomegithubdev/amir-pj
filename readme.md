@@ -134,6 +134,13 @@ php bin/console doctrine:schema:update -f
 
 ---
 
+## Le 5/03/2022
+
+[Vers le replay](https://drive.google.com/file/d/1iVTkHZ1botZQXyKn2AENkxA0UAvwQFVe/view?usp=sharing)
+
+---
+
+
 ## Créer une commande
 
 Nous allons créer une commande qui va nous permettre d'enregistrer des utilistateurs en base.
@@ -146,8 +153,29 @@ php bin\console make:command
 ```
 
 On suit le guide comme d'habitude, en respectant la convention (user:create)
-Pour en savoir plus, []
+Pour en savoir plus, on peut aller voir la documentation de symfony sur les commandes.
 
+## Créer le système d'authentification
+
+Encore une fois, on va lancer la console de Symfony
+
+```bash
+
+php bin\console make:auth
+
+```
+
+On va demander un LoginForm Authenticator car nous souhaitons nous logger par formulaire. Symfony va créer pour nous 3 fichiers:
+- SecurityController pour gérer les routes /login /logout
+- login.html.twig qui sera le template contenant notre formulaire de connection
+- LoginFormAuthenticator.php qui s'occupe d'authentifier l'utilisateur
+
+Symfony va aussi mettre à jour le fichier security.yaml en créant un firewall. Son but sera de définir un moyen de se connecter à l'application.
+
+## Création du backoffice
+
+Grace à la console nous allons recréer un controller qui va gérer le backoffice.
+Nous utiliserons l'annotation "IsGranted("ROLE_USER")" pour restreindre l'accès aux routes.
 
 
 
