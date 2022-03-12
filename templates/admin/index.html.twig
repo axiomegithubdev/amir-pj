@@ -1,14 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_backoffice.html.twig' %}
 
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
 
-<h1> Ici c'est les backoffice !!!!!</h1>
+
+
+<h1> Ici c'est le backoffice !!!!!</h1>
+
+<ul>
+    {% for message in messages %}
+        <li> 
+            {{message.fullName}} - {{ message.email }}<br>
+            {{message.subject}} <br>
+            <p>{{ message.messageContent }} </p>
+        </li>
+    {% endfor %}
+</ul>
+
+
 
 {% endblock %}

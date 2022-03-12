@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\VisitorRequestRepository;
+use App\Repository\VistorMessageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=VisitorRequestRepository::class)
+ * @ORM\Entity(repositoryClass=VistorMessageRepository::class)
  */
-class VisitorRequest
+class VistorMessage
 {
     /**
      * @ORM\Id
@@ -18,7 +18,7 @@ class VisitorRequest
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $fullName;
 
@@ -35,7 +35,12 @@ class VisitorRequest
     /**
      * @ORM\Column(type="text")
      */
-    private $content;
+    private $messageContent;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isArchived = false;
 
     public function getId(): ?int
     {
@@ -47,7 +52,7 @@ class VisitorRequest
         return $this->fullName;
     }
 
-    public function setFullName(string $fullName): self
+    public function setFullName(?string $fullName): self
     {
         $this->fullName = $fullName;
 
@@ -78,14 +83,26 @@ class VisitorRequest
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getMessageContent(): ?string
     {
-        return $this->content;
+        return $this->messageContent;
     }
 
-    public function setContent(string $content): self
+    public function setMessageContent(string $messageContent): self
     {
-        $this->content = $content;
+        $this->messageContent = $messageContent;
+
+        return $this;
+    }
+
+    public function getIsArchived(): ?bool
+    {
+        return $this->isArchived;
+    }
+
+    public function setIsArchived(bool $isArchived): self
+    {
+        $this->isArchived = $isArchived;
 
         return $this;
     }
