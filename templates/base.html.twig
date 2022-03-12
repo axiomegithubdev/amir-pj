@@ -6,31 +6,41 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-{#             {{ encore_entry_link_tags('app') }}
- #}      {% endblock %}
+            {{ encore_entry_link_tags('app') }}
+       {% endblock %}
 
         {% block javascripts %}
-            {# {{ encore_entry_script_tags('app') }} #}
-
-
-
-            
+           {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="TemplateMo">
+
+
     </head>
+
     <body>
+
+        {# Header et navbar #}
+        {% include "home/partials/header.html.twig" %}
+
         {% block body %}
         
-        c'est le bloc body
-        {% endblock %}
-
-
-        {%block supplement %}
-        
-        
-        
-        
         
         {% endblock %}
-
-    </body>
+    
+    
+        <script language = "text/Javascript"> 
+          cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+          function clearField(t){                   //declaring the array outside of the
+          if(! cleared[t.id]){                      // function makes it static and global
+              cleared[t.id] = 1;  // you could use true and false, but that's more typing
+              t.value='';         // with more chance of typos
+              t.style.color='#fff';
+              }
+          }
+        </script>
+    
+      </body>
 </html>

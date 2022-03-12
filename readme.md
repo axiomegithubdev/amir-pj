@@ -155,6 +155,13 @@ php bin\console make:command
 On suit le guide comme d'habitude, en respectant la convention (user:create)
 Pour en savoir plus, on peut aller voir la documentation de symfony sur les commandes.
 
+Nous allons créer la commande user:create qui nous permettra de créer des utilisateurs en BDD. Plus tard nous améliorerons cette commande pour enregistrer des utilisateurs dynamiquement. Le fichier de commande se trouve dans:
+
+```
+src\Command\UserCreateCommand.php
+```
+
+
 ## Créer le système d'authentification
 
 Encore une fois, on va lancer la console de Symfony
