@@ -188,7 +188,8 @@ Nous utiliserons l'annotation "IsGranted("ROLE_USER")" pour restreindre l'accès
 
 ## Cours du 12/03
 ▶️[Lien vers le replay - partie 1](https://drive.google.com/file/d/1tXfcUPphr7JbInJM9DZt3l-RbI6ta2yF/view?usp=sharing)
-▶️[Lien vers le replay - partie 1](https://drive.google.com/file/d/1sM9sJ23_lTJN8ZbVKZkIk6tVUeqwGzlN/view?usp=sharing)
+
+▶️[Lien vers le replay - partie 2](https://drive.google.com/file/d/1sM9sJ23_lTJN8ZbVKZkIk6tVUeqwGzlN/view?usp=sharing)
 
 ---
 
