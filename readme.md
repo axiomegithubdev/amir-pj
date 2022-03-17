@@ -136,7 +136,7 @@ php bin/console doctrine:schema:update -f
 
 ## Le 5/03/2022
 
-[Vers le replay](https://drive.google.com/file/d/1iVTkHZ1botZQXyKn2AENkxA0UAvwQFVe/view?usp=sharing)
+[Vers le replay](https://drive.google.com/file/d/13xZFXr36h7dvfEO2-t7AVA-41D28ZBX5/view?usp=sharing)
 
 ---
 
@@ -183,6 +183,45 @@ Symfony va aussi mettre à jour le fichier security.yaml en créant un firewall.
 
 Grace à la console nous allons recréer un controller qui va gérer le backoffice.
 Nous utiliserons l'annotation "IsGranted("ROLE_USER")" pour restreindre l'accès aux routes.
+
+---
+
+## Cours du 12/03
+▶️[Lien vers le replay - partie 1](https://drive.google.com/file/d/1tXfcUPphr7JbInJM9DZt3l-RbI6ta2yF/view?usp=sharing)
+▶️[Lien vers le replay - partie 1](https://drive.google.com/file/d/1sM9sJ23_lTJN8ZbVKZkIk6tVUeqwGzlN/view?usp=sharing)
+
+---
+
+Pour mettre en place webpack:
+
+```shell
+
+composer require symfony/webpack-encore-bundle
+yarn install
+```
+
+Il va y avoir des nouveaux dossiers créés:
+/assets -> c'est ici que nous placerons les assets du template
+/node_modules -> c'est ici que sont téléchargées les dépendances JS
+
+Pour utiliser webpack il faudra lancer un server avec la commande:
+```
+yarn encore dev-server
+```
+
+Pour ajouter un module js depuis le catalogue des package
+```
+yarn add nom_du_package
+
+// par exemple pour bootstrap
+
+yarn add bootstrap@4
+```
+
+Déplacer les assets du template dans le dossier templates pour ceux qui ne se trouve pas sur le web et bien penser à faire des imports dans le fichier assets/app.js.
+Pour terminer, il faudra découper notre template en sous élements (header, body, footer, navbar, etc.) 
+Et bien veiller à ce que chaque ressource (css ou js) soit importée
+
 
 
 
