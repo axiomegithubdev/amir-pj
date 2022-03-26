@@ -16,7 +16,7 @@
               <div  id="form-error-message" class="error-message animate__animated">
                 Un erreur est survenue! Merci de réessayer plus tard.
               </div>
-            <!-- remplace la balise form ouvrante -->
+            <!-- remplace la balise form ouvrante, on va définir l'attribut data-controller pour que Stimulus connecte le fichier postform_ajax_controller.js -->
               {{ form_start(formMessage, { attr : { "data-controller" : "postform-ajax"} })}}
             
              <!-- <form id="contact" action="" method="post">   -->

@@ -226,19 +226,32 @@ Et bien veiller à ce que chaque ressource (css ou js) soit importée
 ---
 ### Cours du 26/03/2022
 
-▶️[Lien vers le replay]()
+▶️[Lien vers le replay](https://drive.google.com/file/d/14krATc43tEnr20iXz5JaBI9UXkae8mrT/view?usp=sharing)
 
 Objectifs du jour: 
 
-- Gérer ses branches git (versionning)
-- Améliorer le backoffice
 - Créer des requêtes asynchrones
+- Gérer ses branches git (versionning), en bonus 
 
 ---
 
 ### Requêtes AJAX
 
-Nous devons créer une route qui reçois notre requête et renvoie une réponse JSON
+Le but du jour est de poster notre formulaire sans avoir à recharger notre page.
+
+#### Les controllers Stimulus
+Stimulus est un module JS qui va nous simplifier la vie. Il va rechercher toutes les balises ayant comme attribut
+"data-controller" pour y attacher un fichier
+
+####Les fichiers utiles:
+
+▶️[contact_form.html.twig](templates/home/partials/contact_form.html.twig) - **ligne 20**
+
+▶️[contact_form.html.twig](src/Controller/HomeController.php) - mise en place de la route pour traiter le formulaire en AJAX
+
+▶️[contact_form.html.twig](assets/controllers/postform_ajax_controller.js) - mise en place du code JS pour gérer la soumission du formulaire en AJAX
+
+---
 
 
 
