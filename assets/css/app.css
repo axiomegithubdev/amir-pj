@@ -1,0 +1,17 @@
+.title-white{
+    color: white;
+}
+
+.error-message{
+    border: 1px solid white;
+    background: white;
+    padding: 1rem;
+    border-radius: 25px;
+    color: orangered;
+    margin-bottom: 3rem;
+    display: none;
+}
+
+.error-message--on{
+    display: block;
+}
