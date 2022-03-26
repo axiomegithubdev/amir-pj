@@ -223,6 +223,27 @@ Déplacer les assets du template dans le dossier templates pour ceux qui ne se t
 Pour terminer, il faudra découper notre template en sous élements (header, body, footer, navbar, etc.) 
 Et bien veiller à ce que chaque ressource (css ou js) soit importée
 
+---
+### Cours du 26/03/2022
+
+▶️[Lien vers le replay]()
+
+Objectifs du jour: 
+
+- Gérer ses branches git (versionning)
+- Améliorer le backoffice
+- Créer des requêtes asynchrones
+
+---
+
+### Requêtes AJAX
+
+Nous devons créer une route qui reçois notre requête et renvoie une réponse JSON
+
+
+
+
+
 
 
 
