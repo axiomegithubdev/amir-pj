@@ -10,6 +10,7 @@ import './css/flex-slider.css';
 import './css/templatemo-finance-business.css';
 import './css/owl.css';
 import './css/fontawesome.css';
+import './css/app.css';
 
 // node_modules -> je ne mets pas le ./
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ import './js/custom.js';
 import './js/owl.js';
 import './js/slick.js';
 import './js/jquery.singlePageNav.min.js';
+import 'animate.css/animate.css';
 
 
 
