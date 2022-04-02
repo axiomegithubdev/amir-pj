@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -7,10 +7,10 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app_backoffice') }}
-       {% endblock %}
+        {% endblock %}
 
         {% block javascripts %}
-           {{ encore_entry_script_tags('app_backoffice') }}
+            {{ encore_entry_script_tags('app_backoffice') }}
         {% endblock %}
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,11 +19,19 @@
 
     <body>
 
-        {% block body %}
-        
-        
-        {% endblock %}
+    {% include "admin/base_parts/navbar.html.twig" %}
 
-    
+    <main role="main" class="container">
+{#        <h1 class="mt-5">Sticky footer with fixed navbar</h1>#}
+{#        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>#}
+{#        <p>Back to <a href="../sticky-footer/">the default sticky footer</a> minus the navbar.</p>#}
+    {% block body %}
+
+     {% endblock %}
+    </main>
+
+
+    {% include "admin/base_parts/footer.html.twig" %}
+
       </body>
 </html>

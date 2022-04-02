@@ -61,8 +61,10 @@ export default class extends Controller {
                 if( response.status !== 200){
                     const errorElement = document.querySelector("#form-error-message");
                     errorElement.classList.add("error-message--on");
-                    errorElement.classList.add('animate__flipInX')
+                    errorElement.classList.add('animate__flipInX');
+                    return false;
                 }
+                return response.json();
             })
 
             // On traite le json

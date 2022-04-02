@@ -4,33 +4,29 @@
 
 {% block body %}
 
+    <div class="row">
+        <div class="col-12">
+            <h1>Messages des visiteurs</h1>
+        </div>
+    </div>
 
-<h1>Voici les messages des visiteurs</h1>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+{#                <li class="list-group-item active" aria-current="true">An active item</li>#}
+
+                {% for message in visitorMessages %}
+
+                    <li class="list-group-item" > {{ message.fullName }} | {{ message.content }}</li>
+
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
 
-<h2>Le dernier message</h2>
-
-<p>
-Autheur: {{ lastMessage.fullName }}
-
-<br>
-    {{ lastMessage.content }}
-</p>
 
 
-<hr>
-
-<h2>Tous les messages</h2>
-<ul>
-{# on va devoir lister les commentaires #}
-
-{% for message in visitorMessages %}
-
-    <li> {{ message.fullName }} | {{ message.content }}</li>
-
-{% endfor %}
-
-</ul>
 
 
 

@@ -9,12 +9,18 @@
 
 // node_modules -> je ne mets pas le ./
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'popper.js';
+import 'sweetalert2/dist/sweetalert2.min.css'
+import './css/sticky-nav.css';
 
+import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.js'
 import 'jquery/dist/jquery.min.js';
 
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
+// CommonJS
+global.Swal = require('sweetalert2')
 
 
 // start the Stimulus application

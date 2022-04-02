@@ -253,10 +253,73 @@ Stimulus est un module JS qui va nous simplifier la vie. Il va rechercher toutes
 
 ---
 
+### Cours du 02/04/2022
 
+▶️[lien vers le replay](https://drive.google.com/file/d/1gb2-7JgL-W_RciqOXLvaops5dY5aV3E_/view?usp=sharing)
 
+Objectif du jour: améliorer son backoffice
 
+#### Etape 1: Concevoir un template dédié au backoffice
 
+Nous allons récupérer un template bootstrap assez simpliste pour notre BO
+
+▶️[Directement depuis la doc bootstrap](https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/)
+
+Nous allons créer un template de base twig qui sera dédié au backoffice car le css et les librairies JS dont nous avons besoin sont différentes de la partie web dédiée aux visiteurs
+
+Pour ça il faudra:
+
+- Créer le fichier template/base_bo.html.twig (contenant le code HTML de base pour le backoffice)
+- Créer le fichier assets/app_bo.js (qui contiendra les imports des librairies JS et CSS nécessaires)
+- Copier le template depuis le site web bootstrap vers notre template twig et l'adapter
+
+#### Etape 2: Gérer les messages reçus
+
+Le principe ici va être de pouvoir administrer les messages, ainsi en tant qu'administrateur du site je veux pouvoir:
+
+- Consulter les nouveaux messages
+- Supprimer, archiver les messages
+- (bonus avec l'étape 3) Répondre à nos message depuis le BO
+
+#### Etape 3 (bonus): Mise en place du service mailer
+
+Là c'est un peu plus long mais pas beaucoup plus compliqué, il va falloir configurer une boite mail et installer le service de messagerie correspondant dans notre application symfony.
+Nous utiliserons gmail car il est gratuit et relativement facile à configurer.
+
+Pour la configuration du mailer, il est vivement conseillé de consulter la [doc de symfony](https://symfony.com/doc/current/mailer.html) qui est très bien faite.
+
+Il va donc falloir compléter notr **MAILER_DSN** notre fichier d'environnement [.env.local](.env.local)
+
+Une fois terminé nous pouvons tester notre mailer.
+
+Symfony met à nottre dispisition le mailer, disponible par injection de dépendance. Pour l'utiliser au sein d'un controller ou d'un service, je n'ai qu'à demander un **MailerInterface**. 
+Symfony sra capable de sélectionner le mailer par défaut et le donner.
+
+```php
+
+#[Route('/email')]
+    public function sendEmail(MailerInterface $mailer): Response
+    {
+        $email = (new Email())
+            ->from('hello@example.com')
+            ->to('you@example.com')
+            //->cc('cc@example.com')
+            //->bcc('bcc@example.com')
+            //->replyTo('fabien@example.com')
+            //->priority(Email::PRIORITY_HIGH)
+            ->subject('Time for Symfony Mailer!')
+            ->text('Sending emails is fun again!')
+            ->html('<p>See Twig integration for better HTML integration!</p>');
+
+        $mailer->send($email);
+
+        // ...
+    }
+```
+
+Il ne reste plus qu'à créer une route mettant à disposition un formulaire, qui lors de sa soumission, utilisera le mailer.
+
+### Prochaine: Créer un readme
 
 
 

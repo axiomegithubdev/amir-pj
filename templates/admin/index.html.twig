@@ -1,24 +1,51 @@
 {% extends 'base_backoffice.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+
+{% block title %}Messages visiteurs{% endblock %}
 
 {% block body %}
 
+<div class="row">
+    <div class="col-12">
+        <h1>Messages des visiteurs {% if isArchive %}(archivés){% endif %}</h1>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-12">
 
+        {% if visitorMessages is empty %}
+                <div class="alert alert-warning">
+                    Il n'y pas de messages {% if isArchive %}archivés{% endif %}!
+                </div>
+        {% else %}
+        <ul class="list-group">
+            {#                <li class="list-group-item active" aria-current="true">An active item</li>#}
+            {% for message in visitorMessages %}
 
-<h1> Ici c'est le backoffice !!!!!</h1>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-7">
+                            <strong class="">{{ message.fullName }}</strong> - {{ message.subject }} <br>
+                            Email: <a href="mailto:{{ message.email }}"> {{ message.email }}</a>
+                        </div>
+                        <div class="col-5 text-right">
+                            {% if isArchive %}
+                                <a href="{{ path('admin_vmess_unarchive', { id : message.id }) }}" class="btn btn-warning" data-controller="ajax-button" >Désarchiver</a>
+                            {% else %}
+                                <a href="" class="btn btn-success">Répondre</a>
+                                <a href="{{ path('admin_vmess_archive', { id : message.id }) }}" class="btn btn-warning" data-controller="ajax-button" >Archiver</a>
+                            {% endif %}
+                            <a href="{{ path('admin_vmess_delete', { id : message.id }) }}" class="btn btn-danger" data-controller="ajax-button" >Supprimer</a>
+                        </div>
+                    </div>
+                </li>
 
-<ul>
-    {% for message in messages %}
-        <li> 
-            {{message.fullName}} - {{ message.email }}<br>
-            {{message.subject}} <br>
-            <p>{{ message.messageContent }} </p>
-        </li>
-    {% endfor %}
-</ul>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
-
+    </div>
+</div>
 
 {% endblock %}
