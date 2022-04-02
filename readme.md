@@ -243,7 +243,7 @@ Le but du jour est de poster notre formulaire sans avoir à recharger notre page
 Stimulus est un module JS qui va nous simplifier la vie. Il va rechercher toutes les balises ayant comme attribut
 "data-controller" pour y attacher un fichier
 
-####Les fichiers utiles:
+#### Les fichiers utiles:
 
 ▶️[contact_form.html.twig](templates/home/partials/contact_form.html.twig) - **ligne 20**
 
