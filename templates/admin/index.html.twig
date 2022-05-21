@@ -28,12 +28,20 @@
                         <div class="col-7">
                             <strong class="">{{ message.fullName }}</strong> - {{ message.subject }} <br>
                             Email: <a href="mailto:{{ message.email }}"> {{ message.email }}</a>
+                            {% if message.visitorEmailResponses|length > 0  %}
+                                <br>
+                                <div class="badge bg-success">
+                                    Dernière réponse: {{ message.visitorEmailResponses|last.createdAt|date("d/m/Y H:i") }}
+                                </div>
+                            {% endif %}
+
+
                         </div>
                         <div class="col-5 text-right">
                             {% if isArchive %}
                                 <a href="{{ path('admin_vmess_unarchive', { id : message.id }) }}" class="btn btn-warning" data-controller="ajax-button" >Désarchiver</a>
                             {% else %}
-                                <a href="" class="btn btn-success">Répondre</a>
+                                <a href="{{ path('admin_vmess_send_email', { id : message.id }) }}" class="btn btn-success">Répondre</a>
                                 <a href="{{ path('admin_vmess_archive', { id : message.id }) }}" class="btn btn-warning" data-controller="ajax-button" >Archiver</a>
                             {% endif %}
                             <a href="{{ path('admin_vmess_delete', { id : message.id }) }}" class="btn btn-danger" data-controller="ajax-button" >Supprimer</a>

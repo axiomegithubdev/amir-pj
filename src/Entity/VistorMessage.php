@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VistorMessageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class VistorMessage
      * @ORM\Column(type="boolean")
      */
     private $isArchived = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=VisitorEmailResponse::class, mappedBy="visitorMessage", orphanRemoval=true)
+     */
+    private $visitorEmailResponses;
+
+    public function __construct()
+    {
+        $this->visitorEmailResponses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,36 @@ class VistorMessage
     public function setIsArchived(bool $isArchived): self
     {
         $this->isArchived = $isArchived;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, VisitorEmailResponse>
+     */
+    public function getVisitorEmailResponses(): Collection
+    {
+        return $this->visitorEmailResponses;
+    }
+
+    public function addVisitorEmailResponse(VisitorEmailResponse $visitorEmailResponse): self
+    {
+        if (!$this->visitorEmailResponses->contains($visitorEmailResponse)) {
+            $this->visitorEmailResponses[] = $visitorEmailResponse;
+            $visitorEmailResponse->setVisitorMessage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVisitorEmailResponse(VisitorEmailResponse $visitorEmailResponse): self
+    {
+        if ($this->visitorEmailResponses->removeElement($visitorEmailResponse)) {
+            // set the owning side to null (unless already changed)
+            if ($visitorEmailResponse->getVisitorMessage() === $this) {
+                $visitorEmailResponse->setVisitorMessage(null);
+            }
+        }
 
         return $this;
     }

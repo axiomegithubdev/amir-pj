@@ -9,6 +9,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -66,7 +68,8 @@ class HomeController extends AbstractController
      */
     public function postVisitorMessageAJAX(
         Request $request,
-        EntityManagerInterface $manager
+        EntityManagerInterface $manager,
+        MailerInterface $mailer
     ):Response
     {
 
@@ -85,6 +88,18 @@ class HomeController extends AbstractController
         if( $form->isSubmitted() && $form->isValid() ){
             $manager->persist($message);
             $manager->flush();
+
+            $email = new Email();
+
+
+            $email
+                ->from("nepasrepondre@bella.com")
+                ->to("devdemalade@outlook.fr")
+                ->subject("Un message vous attend sur BellaFinance")
+                ->html('<p>Vous avez reçu un email sur BellaFinance</p>');
+            $mailer->send($email);
+
+
 
             // Renvoyer la réponse en JSON
             return $this->json([

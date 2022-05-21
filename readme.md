@@ -322,8 +322,3 @@ Il ne reste plus qu'à créer une route mettant à disposition un formulaire, qu
 ### Prochaine: Créer un readme
 
 
-
-
-
-
-
