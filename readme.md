@@ -281,7 +281,11 @@ Le principe ici va être de pouvoir administrer les messages, ainsi en tant qu'a
 - Supprimer, archiver les messages
 - (bonus avec l'étape 3) Répondre à nos message depuis le BO
 
-#### Etape 3 (bonus): Mise en place du service mailer
+### Cours du 16/04/2022 
+
+▶️[lien vers le replay](https://drive.google.com/file/d/14v0XPu8SuQmS6HSw2Cq3ORxfAYfbnaQ-/view?usp=sharing)
+
+#### Mise en place du service mailer
 
 Là c'est un peu plus long mais pas beaucoup plus compliqué, il va falloir configurer une boite mail et installer le service de messagerie correspondant dans notre application symfony.
 Nous utiliserons gmail car il est gratuit et relativement facile à configurer.
