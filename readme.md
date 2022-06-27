@@ -134,13 +134,6 @@ php bin/console doctrine:schema:update -f
 
 ---
 
-## Le 5/03/2022
-
-[Vers le replay](https://drive.google.com/file/d/13xZFXr36h7dvfEO2-t7AVA-41D28ZBX5/view?usp=sharing)
-
----
-
-
 ## Créer une commande
 
 Nous allons créer une commande qui va nous permettre d'enregistrer des utilistateurs en base.
@@ -186,13 +179,6 @@ Nous utiliserons l'annotation "IsGranted("ROLE_USER")" pour restreindre l'accès
 
 ---
 
-## Cours du 12/03
-▶️[Lien vers le replay - partie 1](https://drive.google.com/file/d/1tXfcUPphr7JbInJM9DZt3l-RbI6ta2yF/view?usp=sharing)
-
-▶️[Lien vers le replay - partie 2](https://drive.google.com/file/d/1sM9sJ23_lTJN8ZbVKZkIk6tVUeqwGzlN/view?usp=sharing)
-
----
-
 Pour mettre en place webpack:
 
 ```shell
@@ -224,9 +210,6 @@ Pour terminer, il faudra découper notre template en sous élements (header, bod
 Et bien veiller à ce que chaque ressource (css ou js) soit importée
 
 ---
-### Cours du 26/03/2022
-
-▶️[Lien vers le replay](https://drive.google.com/file/d/14krATc43tEnr20iXz5JaBI9UXkae8mrT/view?usp=sharing)
 
 Objectifs du jour: 
 
@@ -253,10 +236,6 @@ Stimulus est un module JS qui va nous simplifier la vie. Il va rechercher toutes
 
 ---
 
-### Cours du 02/04/2022
-
-▶️[lien vers le replay](https://drive.google.com/file/d/1gb2-7JgL-W_RciqOXLvaops5dY5aV3E_/view?usp=sharing)
-
 Objectif du jour: améliorer son backoffice
 
 #### Etape 1: Concevoir un template dédié au backoffice
@@ -280,10 +259,6 @@ Le principe ici va être de pouvoir administrer les messages, ainsi en tant qu'a
 - Consulter les nouveaux messages
 - Supprimer, archiver les messages
 - (bonus avec l'étape 3) Répondre à nos message depuis le BO
-
-### Cours du 16/04/2022 
-
-▶️[lien vers le replay](https://drive.google.com/file/d/14v0XPu8SuQmS6HSw2Cq3ORxfAYfbnaQ-/view?usp=sharing)
 
 #### Mise en place du service mailer
 
@@ -324,5 +299,3 @@ Symfony sra capable de sélectionner le mailer par défaut et le donner.
 Il ne reste plus qu'à créer une route mettant à disposition un formulaire, qui lors de sa soumission, utilisera le mailer.
 
 ### Prochaine: Créer un readme
-
-
